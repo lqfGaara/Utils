@@ -7,13 +7,13 @@ import android.content.res.Configuration;
 import android.util.DisplayMetrics;
 import java.math.BigDecimal;
 public class ScreenUtils {
-   private static float sNoncompatDensity;
+    private static float sNoncompatDensity;
     private static float SNocompateScaledDensity;
     public static void setHello(String ss ){
         System.out.println("hahhaahhah"+ss);
     }
 
-    public static void setCustomDebsity(Activity activity, final Application application){
+    public static void setCustomDebsity(Activity activity, final Application application,int Size){
          DisplayMetrics appDisplayMetrices= application.getResources().getDisplayMetrics();
          if (sNoncompatDensity==0){
              sNoncompatDensity=appDisplayMetrices.density;
@@ -32,7 +32,7 @@ public class ScreenUtils {
                  }
              });
          }
-         final  float targetDensity=  new BigDecimal((float)appDisplayMetrices.widthPixels/360).setScale(2, BigDecimal.ROUND_HALF_UP).floatValue();
+         final  float targetDensity=  new BigDecimal((float)appDisplayMetrices.widthPixels/Size).setScale(2, BigDecimal.ROUND_HALF_UP).floatValue();
          final float targetScaledDensity=targetDensity*(SNocompateScaledDensity/sNoncompatDensity);
          final int targetDensityDpi= (int) (160*targetDensity);
          appDisplayMetrices.density=targetDensity;
@@ -43,5 +43,6 @@ public class ScreenUtils {
         activityDisplayMetrices.densityDpi=targetDensityDpi;
         activityDisplayMetrices.scaledDensity=targetScaledDensity;
         activityDisplayMetrices.densityDpi=targetDensityDpi;
+        System.out.println("----完成测试！");
     }
 }
