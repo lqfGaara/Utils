@@ -9,10 +9,6 @@ import java.math.BigDecimal;
 public class ScreenUtils {
     private static float sNoncompatDensity;
     private static float SNocompateScaledDensity;
-    public static void setHello(String ss ){
-        System.out.println("hahhaahhah"+ss);
-    }
-
     public static void setCustomDebsity(Activity activity, final Application application,int Size){
          DisplayMetrics appDisplayMetrices= application.getResources().getDisplayMetrics();
          if (sNoncompatDensity==0){
@@ -40,9 +36,8 @@ public class ScreenUtils {
          appDisplayMetrices.densityDpi=targetDensityDpi;
 
         DisplayMetrics activityDisplayMetrices= activity.getResources().getDisplayMetrics();
-        activityDisplayMetrices.densityDpi=targetDensityDpi;
+        activityDisplayMetrices.density=targetDensity;
         activityDisplayMetrices.scaledDensity=targetScaledDensity;
         activityDisplayMetrices.densityDpi=targetDensityDpi;
-        System.out.println("----完成测试！");
     }
 }
